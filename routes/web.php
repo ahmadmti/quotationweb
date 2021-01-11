@@ -18,6 +18,7 @@ use App\Http\Controllers\PDFController;
 */
 
 
+
 Route::get('/', function () {
     return redirect('login');
 });
