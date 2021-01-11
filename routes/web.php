@@ -17,6 +17,7 @@ use App\Http\Controllers\PDFController;
 | contains the "web" middleware group. Now create something great!
 */
 
+
 Route::get('/', function () {
     return redirect('login');
 });
