@@ -26,10 +26,10 @@
     <div class="row mt-5">
 
         {{-- id field --}}
-        <div class="form-group col-md-4">
+        {{-- <div class="form-group col-md-4"> --}}
             <span id="c_id">
             </span>
-        </div>
+        {{-- </div> --}}
         {{-- name field --}}
         <div class="form-group col-md-4">
             <span id="name">
@@ -114,8 +114,8 @@
                 dataType : 'json',
                 success: function(result){
                     if(result.customer !== null && typeof result.customer !== 'undefined'){
-                        $("#c_id").html(`<label for="id">ID:</label>
-                                        <input value="`+result.customer.id+`" name="c_id" class="form-control">`);
+                        $("#c_id").html(`
+                                        <input type="hidden" value="`+result.customer.id+`" name="c_id" class="form-control">`);
                         $("#name").html(`<label for="name">Name:</label>
                                         <input disabled value="`+result.customer.name+`" name="name" class="form-control">`);
                         $("#email").html(`<label for="email">Email:</label>
