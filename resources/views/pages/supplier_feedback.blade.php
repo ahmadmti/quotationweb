@@ -70,7 +70,7 @@
             @foreach ($view_quot_for_feedback['products'] as $item)
 
                 {{-- Product Name Field --}}
-                <input type="text" name="quot_id" placeholder="test" value="{{ $item['quotation_id'] }}">
+                <input type="hidden" name="quot_id" placeholder="test" value="{{ $item['quotation_id'] }}">
 
                 <td>
                     <textarea disabled name="product[]" id="product" cols="" rows="1" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea>
@@ -115,7 +115,7 @@
                 success: function(result){
                     if(result.customer !== null && typeof result.customer !== 'undefined'){
                         $("#c_id").html(`<label for="id">ID:</label>
-                                        <input type="hidden" value="`+result.customer.id+`" name="c_id" class="form-control">`);
+                                        <input value="`+result.customer.id+`" name="c_id" class="form-control">`);
                         $("#name").html(`<label for="name">Name:</label>
                                         <input disabled value="`+result.customer.name+`" name="name" class="form-control">`);
                         $("#email").html(`<label for="email">Email:</label>
