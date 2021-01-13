@@ -10,7 +10,6 @@ use Mail;
 
 class PDFController extends Controller
 {
-
     public function generatePDF(Request $req){
 
         $quotations = Quotation::with('products')->where('id',$req->quot_id)->first();

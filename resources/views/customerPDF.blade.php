@@ -11,13 +11,13 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
                 <div class="mb-1"><b>Date: </b>{{ date('d/M/Y') }}</div>
-                <div class="mb-1"><b>Customer:</b> {{$feedback['customer']->name}}</div>
-                <div class="mb-1"><b>Email:</b> {{ $feedback['customer']->email }}</div>
+                {{-- <div class="mb-1"><b>Customer:</b> {{$feedback['customer']->name}}</div> --}}
+                {{-- <div class="mb-1"><b>Email:</b> {{ $feedback['customer']->email }}</div> --}}
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                {{$feedback['products']}} <br><br>
+                {{-- {{$feedback['products']}} <br><br> --}}
                 <table class="table table-hover">
                     <thead class="table-dark">
                         <tr>
@@ -31,16 +31,16 @@
                         {{-- @foreach ($feedback as $feedback) --}}
                         <tr>
                             <td>
-                                {{ $feedback['products']->id }}
+                                {{-- {{ $feedback['products']->id }} --}}
                             </td>
                             <td>
-                                {{ $feedback['products']->product }}
+                                {{-- {{ $feedback['products']->product }} --}}
                             </td>
                             <td>
-                                {{ $feedback['products']->specification }}
+                                {{-- {{ $feedback['products']->specification }} --}}
                             </td>
                             <td>
-                                {{ $feedback['supplier_feedback'] }}
+                                {{-- {{ $feedback['supplier_feedback'] }} --}}
                             </td>
                         </tr>
                         {{-- @endforeach --}}

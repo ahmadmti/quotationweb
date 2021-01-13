@@ -14,8 +14,7 @@ class Supplier_Feedback extends Model
         return $this->belongsTo(customer::class,'customer_id','id');
     }
 
-
     public function products(){
-        return $this->belongsTo(product::class,'product_id','id');
+        return $this->belongsTo(product::class,'quotation_id','quotation_id');
     }
 }

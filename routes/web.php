@@ -26,9 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 
-// Route::get('/dashboard',[CountController::class,'countRows']);
-
-
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
@@ -85,7 +82,6 @@ Route::post('delete_product',[ProductController::class,'deleteProduct']);
 // Product Route
 Route::post('product',[ProductController::class,'store']);
 // view Quotations
-// Route::post('add_quotation',[quotationController::class,'store']);
 Route::get('quotation',[quotationController::class,'show']);
 // View Quotation Detail
 Route::get('view-quot-detail/{id}',[quotationController::class,'view']);
