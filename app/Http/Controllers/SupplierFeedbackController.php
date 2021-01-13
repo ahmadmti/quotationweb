@@ -46,7 +46,7 @@ class SupplierFeedbackController extends Controller
     public function getFeedbackData(Request $req){
 
         $feedback = Supplier_Feedback::with('products','customer')->first();
-        return $feedback;
+        // return $feedback;
         return view('customerPDF',['feedback' => $feedback]);
 
     }
