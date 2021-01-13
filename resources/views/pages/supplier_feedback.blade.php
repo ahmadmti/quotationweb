@@ -55,7 +55,6 @@
 <div class="ease-top">
     <div class="quotsBox mt-3">
         <h2 class="mb-4"><label>Product Detail:</label>
-            <input style="float: right;" type="submit" name="submit"  class="btn btn-primary mt-4" value="Send PDF">
         </h2>
         {{-- codepen --}}
         <div id="table" class="table-editable">
@@ -88,6 +87,7 @@
             @endforeach
         </table>
         </div>
+        <input style="float: right;" type="submit" name="submit"  class="btn btn-primary mt-4" value="Send PDF">
         {{-- codepen --}}
     </div>
     </form>

@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
                 <div class="mb-1"><b>Date: </b>{{ date('d/M/Y') }}</div>
-                {{-- <div class="mb-1"><b>Customer:</b> {{$feedback['customer']->name}}</div> --}}
-                {{-- <div class="mb-1"><b>Email:</b> {{ $feedback['customer']->email }}</div> --}}
+                <div class="mb-1"><b>Customer:</b> {{$feedback['customer'] }}</div>
+                <div class="mb-1"><b>Email:</b> {{ $feedback['customer'] }}</div>
             </div>
         </div>
         <div class="row mt-5">
