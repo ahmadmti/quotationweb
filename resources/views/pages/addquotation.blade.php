@@ -8,10 +8,9 @@
 <h1 class="hedingPage">Add Quotations</h1> <hr>
 <div class="row mt-5">
     <div class="col-sm-8 col-md-8 col-lg-8">
-        <p id="quots">Add quotations to the specific customer.</p>
+        <p id="quots">Let RFQ Customer.</p>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-
         <select name="name" id="name-dropdown-fetching-data" class="form-control">
             <option value=""> Select Customer</option>
             @foreach ($allData as $item)
@@ -28,6 +27,14 @@
 
 <form action="product" method="POST">
     @csrf
+<div class="row">
+    <div class="col-sm-8 col-md-8 col-lg-8 mt-4">
+        <p id="quots">RFQ Date:</p>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 mt-4">
+        <input type="date" name="date" id="date" class="form-control" placeholder="Enter Date Quotation Date">
+    </div>
+</div>
 <div class="row mt-5">
     <div>
     </div>

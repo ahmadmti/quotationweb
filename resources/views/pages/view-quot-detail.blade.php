@@ -8,7 +8,7 @@
 <div class="detail">
     <table class="table table-hover">
         <div class="headingPage_child">
-            {{ $viewQuotDetail['customer']->name }}'s Detail
+            {{ !empty($viewQuotDetail['customer']->name) ? $viewQuotDetail['customer']->name : "Customer Deleted.." }}
         </div>
         <tr>
             <th style="width: 200px"><li>Quotation ID:</li></th>
@@ -16,7 +16,35 @@
         </tr>
         <tr>
             <th><li>Customer Name:</li></th>
-            <td>{{ $viewQuotDetail['customer']->name }}</td>
+            <td>{{ !empty($viewQuotDetail['customer']->name) ? $viewQuotDetail['customer']->name : 'Customer Deleted..' }}</td>
+        </tr>
+        <tr>
+            <th><li>Customer Email:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->email) ? $viewQuotDetail['customer']->email : '--' }}</td>
+        </tr>
+        <tr>
+            <th><li>Phone #:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->phone) ? $viewQuotDetail['customer']->phone : '--' }}</td>
+        </tr>
+        <tr>
+            <th><li>Address:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->address) ? $viewQuotDetail['customer']->address : '--' }}</td>
+        </tr>
+        <tr>
+            <th><li>City:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->city) ? $viewQuotDetail['customer']->city : '--' }}</td>
+        </tr>
+        <tr>
+            <th><li>State:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->state) ? $viewQuotDetail['customer']->state : '--' }}</td>
+        </tr>
+        <tr>
+            <th><li>Country:</li></th>
+            <td>{{ !empty($viewQuotDetail['customer']->country) ? $viewQuotDetail['customer']->country : '--' }}</td>
+        </tr>
+        <tr>
+            <td class="text-primary">-- -- -- -- -- -- --</td>
+            <td class="text-primary">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</td>
         </tr>
         <tr>
             <th><li>Product(s) Name <i class="fas fa-angle-down"></i></li></th>

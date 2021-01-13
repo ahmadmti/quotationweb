@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateSupQuotIdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('sup_quot_ids', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('quotation_id');
-            $table->text('product')->nullable();
-            $table->text('specification')->nullable();
+            $table->string('supplier_id')->nullable();
+            $table->string('quotation_id')->nullable();
+            $table->text('url')->nullable();
             $table->timestamps();
-
-            $table->foreign('quotation_id')->references('id')->on('quotations')->onDelete('cascade');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('sup_quot_ids');
     }
 }

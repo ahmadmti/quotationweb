@@ -13,36 +13,36 @@
     <h3 class="headingPage_child"><i class="fas fa-user-alt"></i> {{ $customerDetial['name'] }}</h3>
 <table class="table table-hover">
     <tr>
-        <th style="width: 200px">Email:</th>
+        <th style="width: 200px"><li>Email:</li></th>
         <td>{{ $customerDetial['email'] }}</td>
     </tr>
     <tr>
-        <th>Phone #:</th>
-        <td>{{ $customerDetial['phone'] }}</td>
+        <th><li>Phone #:</li></th>
+        <td>{{ !empty($customerDetial['phone']) ? $customerDetial['phone'] : '--' }}</td>
     </tr>
     <tr>
-        <th>Address:</th>
-        <td>{{ $customerDetial['address'] }}</td>
+        <th><li>Address:</li></th>
+        <td>{{ !empty($customerDetial['address']) ? $customerDetial['address'] : '--' }}</td>
     </tr>
     <tr>
-        <th>City:</th>
-        <td>{{ $customerDetial['cities']->city_name }}</td>
+        <th><li>City:</li></th>
+        <td>{{ !empty($customerDetial['cities']->city_name) ? $customerDetial['cities']->city_name : '--' }}</td>
     </tr>
     <tr>
-        <th>State:</th>
-        <td>{{ $customerDetial['states']->states_name }}</td>
+        <th><li>State:</li></th>
+        <td>{{ !empty($customerDetial['states']->states_name) ? $customerDetial['states']->states_name : '--' }}</td>
     </tr>
     <tr>
-        <th>Country:</th>
-        <td>{{ $customerDetial['countries']->country_name }}</td>
+        <th><li>Country:</li></th>
+        <td>{{ !empty($customerDetial['countries']->country_name) ? $customerDetial['countries']->country_name : '--' }}</td>
     </tr>
     <tr>
         <p class="mutedButtons">
-            <a href="{{url('/add_supplier')}}"><i class="fas fa-plus-circle"></i></a>
+            <a href="{{url('/addCustomer')}}" data-toggle="tooltip" title="Add Customer"><i class="fas fa-plus-circle"></i></a>
             &nbsp;
-            <a href="{{url('edit_customer/'.$customerDetial['id'])}}"><i class="fas fa-edit"></i></a>
+            <a href="{{url('edit_customer/'.$customerDetial['id'])}}" data-toggle="tooltip" title="Edit Customer"><i class="fas fa-edit"></i></a>
             &nbsp;
-            <a onclick="return confirm('Are you sure you want to Delete?');" href="{{ url('customer-delete/'.$customerDetial['id'] )}}"><i class="fas fa-trash-alt"></i></a>
+            <a onclick="return confirm('Are you sure you want to Delete?');" href="{{ url('customer-delete/'.$customerDetial['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a>
         </p>
     </tr>
 </table>

@@ -7,7 +7,10 @@ use App\Models\customer;
 use App\Models\product;
 use App\Models\Quotation;
 use App\Models\supplier;
+use App\Models\supplier_feedback;
+use App\Models\supplier_feedbacks;
 use App\Models\supplier_quotation;
+use App\Models\SupplierFeedback;
 use Illuminate\Auth\Events\Validated;
 
 class quotationController extends Controller
@@ -31,7 +34,8 @@ class quotationController extends Controller
     public function show(){
 
         $supplier_name = supplier::all();
-        $quotID = Quotation::with('customer')->get();
+        $quotID = Quotation::with('customer')->orderBy('id','DESC')->get();
+
         return view('pages.quotation',['quotID' => $quotID, 'supplier_name' => $supplier_name]);
     }
 
@@ -65,6 +69,15 @@ class quotationController extends Controller
 
         $delete = Quotation::find($req->id);
         $delete->delete();
-        return redirect(url('quotation'));
+        return redirect(url('quotation'))->with('message','Quotation Deleted!');
+    }
+
+
+
+    public function deleteQuotation(Request $req){
+
+        $customerDelete = Quotation::find($req->id);
+        $customerDelete->delete();
+        return response()->json(['status'=> 'success']);
     }
 }

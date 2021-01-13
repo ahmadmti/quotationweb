@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\supplier;
 use Illuminate\Http\Request;
-use App\Models\{country,state,city};
+use App\Models\{country,state,city, customer, Quotation, SupplierFeedback};
 
 
 class SupplierController extends Controller
@@ -41,12 +41,6 @@ class SupplierController extends Controller
         $this->validate($req, [
             'name' => 'required | max:255',
             'email' => 'required',
-            'mobile' => 'required | digits: 11',
-            'phone' => 'required | digits: 10',
-            'shop_address' => 'required',
-            'country' => 'required',
-            'state' => 'required',
-            'city' => 'required',
 
         ]);
 
@@ -72,7 +66,7 @@ class SupplierController extends Controller
 
         $supplier->save();
 
-        return redirect(url('/add_supplier'))->with('success','Record added successfully!');
+        return redirect(url('/add_supplier'))->with('success','Supplier added!');
     }
 
 
@@ -80,7 +74,7 @@ class SupplierController extends Controller
     public function show()
     {
         //
-        $supplier = supplier::with('countries','states','cities')->get();
+        $supplier = supplier::with('countries','states','cities')->orderBy('id','DESC')->get();
         return view('/pages.supplier',['supplier'=> $supplier]);
     }
 
@@ -102,12 +96,6 @@ class SupplierController extends Controller
         $this->validate($req, [
             'name' => 'required | max:255',
             'email' => 'required',
-            'mobile' => 'required | digits: 11',
-            'phone' => 'required | digits: 10',
-            // 'shop_address' => 'required',
-            // 'city' => 'required',
-            // 'country' => 'required',
-            // 'state' => 'required',
         ]);
 
         $supplier = supplier::find($req->id);
@@ -125,10 +113,6 @@ class SupplierController extends Controller
         $edit_supplier->mobile = $req->mobile;
         $edit_supplier->phone = $req->phone;
         $edit_supplier->fax = $req->fax;
-        // $edit_supplier->shop_address = $req->shop_address;
-        // $edit_supplier->city = $req->city;
-        // $edit_supplier->state = $req->state;
-        // $edit_supplier->country = $req->country;
 
         $edit_supplier->save();
 
@@ -153,5 +137,13 @@ class SupplierController extends Controller
         $deleteSupplier = supplier::find($req->id);
         $deleteSupplier->delete();
         return redirect(url('supplier'))->with('delete_message','Record Deleted Successfully!');
+    }
+
+    //Send Supplier feedback to customer
+    public function supplierFeedback(Request $req){
+
+        $customers = customer::all();
+        $editQuots = Quotation::where('id',$req->id)->with('products','customer')->first();
+        return view('pages.supplier_feedback',['editQuots'=> $editQuots,'customers'=>$customers]);
     }
 }

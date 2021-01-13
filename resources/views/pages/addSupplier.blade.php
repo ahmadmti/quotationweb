@@ -5,7 +5,9 @@
 
 <div class="mt-3 mb-3">
     @if (session('success'))
-        <span class="alert alert-success">{{ session('success') }}</span>
+        <li>
+            <span class="text-success">{{ session('success') }}</span>
+        </li>
     @endif
 </div>
 <div class="mt-5">
@@ -35,43 +37,31 @@
                     </div>
                     {{-- Mobile No. Field --}}
                     <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                        <label for="number">Mobile #:<span id="mustFill">*</span></label>
+                        <label for="number">Mobile #:</label>
                         <input type="number" value="{{old('mobile')}}" name="mobile" class="form-control" placeholder="Enter Mobile Number">
-                        @error('mobile')
-                            <div class="text-danger mt-3">{{ $errors->first('mobile')}}</div>
-                        @enderror
                     </div>
                 </div>
                 <div class="row mt-4">
                     {{-- Shop Address Field --}}
                     <div class="form-group col-sm-5 col-md-5 col-lg-5">
-                        <label for="shop_address">Shop Address:<span id="mustFill">*</span></label>
+                        <label for="shop_address">Shop Address:</label>
                         <textarea value="" name="shop_address" rows="5" class="form-control" placeholder="Enter Shop Address.">{{old('shop_address')}}</textarea>
-                        @error('shop_address')
-                            <div class="text-danger mt-3">{{ $errors->first('shop_address')}}</div>
-                        @enderror
                     </div>
                     <div class="form-group col-sm-7 col-md-7 col-lg-7">
                         <div class="row">
                             {{-- Phone # Field --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                                <label for="phone">Phone #:<span id="mustFill">*</span></label>
+                                <label for="phone">Phone #:</label>
                                 <input type="number" value="{{old('phone')}}" name="phone" class="form-control" placeholder="Enter Your Phone Number">
-                                @error('phone')
-                                    <div class="text-danger mt-3">{{ $errors->first('phone')}}</div>
-                                @enderror
                             </div>
                             {{-- fax Field --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">
                                 <label for="fax">Fax #:<span id="mustFill"></span></label>
                                 <input type="text" value="{{old('fax')}}" name="fax" class="form-control" placeholder="Enter Your Fax Number">
-                                @error('fax')
-                                    <div class="text-danger mt-3">{{ $errors->first('fax')}}</div>
-                                @enderror
                             </div>
                             {{-- Country Field --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                                <label for="country">Country:<span id="mustFill">*</span></label>
+                                <label for="country">Country:</label>
                                 <select name="country" class="form-control" id="country-dropdown-fetching-states">
                                     <option value="">Select Country</option>
                                     @foreach ($countries as $country)
@@ -80,29 +70,20 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('country')
-                                    <div class="text-danger mt-3">{{ $errors->first('country')}}</div>
-                                @enderror
                             </div>
                             {{-- State Field --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                                <label for="state">State:<span id="mustFill">*</span></label>
+                                <label for="state">State:</label>
                                 <select name="state" class="form-control" id="state-dropdown-fetching-city">
                                     <option value="">Select Country first</option>
                                 </select>
-                                @error('state')
-                                    <div class="text-danger mt-3">{{ $errors->first('state')}}</div>
-                                @enderror
                             </div>
                             {{-- City Field --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                                <label for="country">City:<span id="mustFill">*</span></label>
+                                <label for="country">City:</label>
                                 <select name="city" class="form-control" id="city-dropdown">
                                     <option value="">Select state first</option>
                                 </select>
-                                @error('city')
-                                    <div class="text-danger mt-3">{{ $errors->first('city')}}</div>
-                                @enderror
                             </div>
                             {{-- Submit Button --}}
                             <div class="form-group col-sm-4 col-md-4 col-lg-4">

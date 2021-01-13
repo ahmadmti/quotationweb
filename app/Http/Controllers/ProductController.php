@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
-use App\Models\customer;
 use App\Models\Quotation;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Validated;
 
 class ProductController extends Controller{
 
@@ -20,6 +18,7 @@ class ProductController extends Controller{
 
         $quotation = new Quotation;
         $quotation->customer_id = $req->id;
+        $quotation->quotation_date = $req->date;
         $quotation->save();
         $products = $req->product;
         $specifications = $req->specification;
@@ -71,7 +70,7 @@ class ProductController extends Controller{
 
         $product = product::find($req->id);
         $product->delete();
-        return response()->json(['status'=> 'success', 'Are you sure you want to delete. if you delete you cannot recover']);
+        return response()->json(['status'=> 'success']);
     }
 
 }

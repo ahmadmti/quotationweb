@@ -12,6 +12,19 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+.text404{
+    color: #f1f1f1;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-size: 200px;
+    background-color: #111;
+}
+.text404 p{
+    font-size: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
 .dashboard_border h5{
     color: rgb(255, 166, 166);
     font-weight: 500;
@@ -114,6 +127,10 @@ label{
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+.headingPage{
+    color: saddlebrown;
+    font-weight: 700;
 }
 .headingPage_child{
     color: saddlebrown;

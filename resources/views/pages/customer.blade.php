@@ -11,10 +11,14 @@
 {{-- Messages --}}
 <div class="mt-5">
     @if (session('success'))
-        <span class="alert alert-success">{{ session('success') }}</span>
+    <li>
+        <span class=" text-success">{{ session('success') }}</span>
+    </li>
     @endif
     @if (session('delete_message'))
-        <span class="alert alert-danger">{{ session('delete_message') }}</span>
+    <li>
+        <span class=" text-danger">{{ session('delete_message') }}</span>
+    </li>
     @endif
 </div>
 
@@ -23,6 +27,7 @@
 <div class="mt-5">
     <table class="table table-hover display mt-5" id="example" style="width:100%">
         <thead class="bg-dark text-white">
+            <td>#</td>
             <td>Name</td>
             <td>Email</td>
             <td>Phone #</td>
@@ -30,20 +35,28 @@
             <td>Operations</td>
         </thead>
         <tbody>
-            @foreach ($customers as $item)
+            @foreach ($customers as $index => $item)
             <tr>
+                <td>{{ $index }}</td>
                 <td>{{ $item['name'] }}</td>
                 <td>{{ $item['email'] }}</td>
-                <td>{{ $item['phone'] }}</td>
-                <td>{{ $item['address'] }}</td>
+                <td>{{ !empty($item['phone']) ? $item['phone'] : '--' }}</td>
+                <td>{{ !empty($item['address']) ? $item['address'] : '--' }}</td>
                 <td>
-                    <a href="{{url('customer_detail/'.$item['id'])}}"><i class="far fa-eye"></i></a>
+                    <a href="{{url('customer_detail/'.$item['id'])}}" data-toggle="tooltip" title="View Customer Detail"><i class="far fa-eye"></i></a>
                     &nbsp;
-                    <a href="{{url('/add_supplier')}}"><i class="fas fa-plus-circle"></i></a>
+                    <a href="{{url('/addCustomer')}}" data-toggle="tooltip" title="Add Customer"><i class="fas fa-plus-circle"></i></a>
                     &nbsp;
-                    <a href="{{url('edit_customer/'.$item['id'])}}" ><i class="fas fa-edit"></i></a>
+                    <a href="{{url('edit_customer/'.$item['id'])}}" data-toggle="tooltip" title="Edit Customer"><i class="fas fa-edit"></i></a>
                     &nbsp;
-                    <a onclick="return confirm('Are you sure you want to Delete?');" href="{{ url('customer-delete/'.$item['id'] )}}"><i class="fas fa-trash-alt"></i></a>
+
+
+                    <a onclick="deleteQuotation('{{$item->id}}')" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a>
+
+
+                    {{-- <a onclick="return confirm('Are you sure you want to Delete?');" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a> --}}
+
+
                 </td>
             </tr>
             @endforeach
@@ -52,10 +65,26 @@
 </div>
 
 
+
 {{-- Data Tabel Script --}}
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    } );
+    function deleteQuotation(id){
+
+    if(confirm('Are you sure? Your want to delete customer and also delete quotations against this customer.')){
+        $.ajax({
+            url:"{{url('delete_quotation')}}",
+            type: "POST",
+            data: {
+                id: id,
+                _token: '{{csrf_token()}}'
+            },
+            dataType : 'json',
+            success: function(result){
+                // $('#row_parent_container_'+id).remove();
+            }
+        });
+    }
+
+}
 </script>
 @endsection

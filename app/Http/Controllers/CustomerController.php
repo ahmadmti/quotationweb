@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\customer;
 use Illuminate\Http\Request;
-use App\Models\{country,state,city};
+use App\Models\{country,state,city, Quotation};
 
 
 class CustomerController extends Controller
@@ -38,11 +38,6 @@ class CustomerController extends Controller
         $this->validate($req, [
             'name' => 'required | max:255',
             'email' => 'required',
-            'number' => 'required|digits: 11',
-            'address' => 'required | max:1000',
-            'city' => 'required',
-            'state' => 'required',
-            'country' => 'required',
         ]);
 
 
@@ -65,7 +60,7 @@ class CustomerController extends Controller
 
         $customer->save();
 
-        return redirect(url('addCustomer'))->with('success','Record added successfully!');
+        return redirect(url('addCustomer'))->with('success','Customer added!');
 
 
     }
@@ -75,7 +70,7 @@ class CustomerController extends Controller
     public function show(){
 
         //
-        $customers = customer::with('countries','states','cities')->get();
+        $customers = customer::with('countries','states','cities')->orderBy('id','DESC')->get();
         return view('/pages.customer',['customers' => $customers]);
     }
 
@@ -96,8 +91,6 @@ class CustomerController extends Controller
         $this->validate($req, [
             'name' => 'required | max:255',
             'email' => 'required',
-            'number' => 'required|digits: 11',
-            'address' => 'required | max:1000',
         ]);
 
         $customer = Customer::find($req->id);

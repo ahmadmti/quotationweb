@@ -144,7 +144,7 @@
                 success: function(result){
                     if(result.customer !== null && typeof result.customer !== 'undefined'){
                         $("#id").html(`<label for="id">ID:</label>
-                                    <input type="hidden" value="`+result.customer.id+`" name="id" class="form-control" readonly>`);
+                                        <input type="hidden" value="`+result.customer.id+`" name="id" class="form-control" readonly>`);
                         $("#name").html(`<label for="name">Name:</label>
                                         <input value="`+result.customer.name+`" name="name" class="form-control" readonly>`);
                         $("#email").html(`<label for="email">Email:</label>

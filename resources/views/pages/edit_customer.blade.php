@@ -9,19 +9,10 @@
 
 
 
-<table class="table table-borderless">
-    <thead>
-        <td><h1 class="hedingPage">{{$data['name']}}'s Record</h1></td>
-    </thead>
-    <tr>
-        <td>
-            <a id="button" href="{{url('/customer')}}" class="btn btn-primary" style="float: right;">View Customer</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
+<h1 class="hedingPage">{{$data['name']}}'s Record</h1></td>
 
-<form action="edit_customer" method="POST">
+
+<form action="edit_customer" method="POST" class="mt-5">
 <div class="row mt-2">
     {{-- Name Field --}}
     @csrf

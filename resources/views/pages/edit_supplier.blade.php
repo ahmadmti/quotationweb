@@ -29,11 +29,8 @@
             </div>
             {{-- Mobile No. Field --}}
             <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                <label for="number">Mobile #:<span id="mustFill">*</span></label>
+                <label for="number">Mobile #:</label>
                 <input type="number" value="{{$editData['mobile']}}" name="mobile" class="form-control">
-                @error('mobile')
-                    <div class="text-danger mt-3">{{ $errors->first('mobile')}}</div>
-                @enderror
             </div>
         </div>
         <div class="row mt-4">
@@ -41,19 +38,13 @@
                 <div class="row">
                     {{-- Phone # Field --}}
                     <div class="form-group col-sm-4 col-md-4 col-lg-4">
-                        <label for="phone">Phone #:<span id="mustFill">*</span></label>
+                        <label for="phone">Phone #:</label>
                         <input type="number" value="{{$editData['phone']}}" name="phone" class="form-control">
-                        @error('phone')
-                            <div class="text-danger mt-3">{{ $errors->first('phone')}}</div>
-                        @enderror
                     </div>
                     {{-- fax Field --}}
                     <div class="form-group col-sm-4 col-md-4 col-lg-4">
                         <label for="fax">Fax #:<span id="mustFill"></span></label>
                         <input type="text" value="{{$editData['fax']}}" name="fax" class="form-control">
-                        @error('fax')
-                            <div class="text-danger mt-3">{{ $errors->first('fax')}}</div>
-                        @enderror
                     </div>
                     {{-- Submit Button --}}
                     <div class="form-group col-sm-4 col-md-4 col-lg-4">

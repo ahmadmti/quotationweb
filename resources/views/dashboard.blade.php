@@ -186,6 +186,7 @@
     @yield('edit_supplier')
     @yield('add_supplier')
     @yield('supplier_detail')
+    @yield('supplier_feedback')
 
     {{-- Quots --}}
     @yield('add_quots')

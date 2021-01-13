@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSupplierQuotationsTable extends Migration
+class CreateSupplierFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateSupplierQuotationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplier_quotations', function (Blueprint $table) {
+        Schema::create('supplier__feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('supplier_id');
+            $table->unsignedBigInteger('customer_id');
+            $table->string('product_id');
             $table->string('quotation_id');
+            $table->string('supplier_feedback')->nullable();
             $table->timestamps();
+
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 
@@ -28,6 +32,6 @@ class CreateSupplierQuotationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplier_quotations');
+        Schema::dropIfExists('supplier__feedback');
     }
 }
