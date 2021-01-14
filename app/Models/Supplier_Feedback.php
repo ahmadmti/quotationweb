@@ -10,11 +10,11 @@ class Supplier_Feedback extends Model
     use HasFactory;
 
 
-    public function customer(){
+    public function customers(){
         return $this->belongsTo(customer::class,'customer_id','id');
     }
 
-    public function products(){
-        return $this->belongsTo(product::class,'quotation_id','quotation_id');
+    public function quotations(){
+        return $this->belongsTo(Quotation::class,'quotation_id','id');
     }
 }
