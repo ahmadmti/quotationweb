@@ -6,6 +6,7 @@ use App\Models\customer;
 use Illuminate\Http\Request;
 use App\Models\Quotation;
 use App\Models\supplier;
+use Illuminate\Support\Facades\Log;
 use PDF;
 use Mail;
 
@@ -25,7 +26,7 @@ class PDFController extends Controller
             \Storage::disk('local')->put('quotation/quotation_'.$req->quot_id.'.pdf', $pdf->output());
 
             \Storage::disk('local')->url('quotation/quotation_'.$req->quot_id.'.pdf');
-
+            Log::debug('to_email'.$supplier_data->email);
             Mail::send('myPDF', ['quotations' => $quotations,'supplier_data' => $supplier_data], function($message) use ($pdf, $supplier_data) {
                 $message->to($supplier_data->email, $supplier_data->name);
                 $message->subject("Product Quotation Review");

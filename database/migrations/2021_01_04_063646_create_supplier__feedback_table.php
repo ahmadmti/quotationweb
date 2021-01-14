@@ -17,11 +17,12 @@ class CreateSupplierFeedbackTable extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('product_id');
-            $table->string('quotation_id');
+            $table->unsignedBigInteger('quotation_id');
             $table->string('supplier_feedback');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('quotation_id')->references('id')->on('quotations')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }

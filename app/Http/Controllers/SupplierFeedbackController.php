@@ -39,7 +39,7 @@ class SupplierFeedbackController extends Controller
             $feedback_object->save();
 
         }
-        return redirect(url('customer'))->with('generate_pdf_successfully','PDF Generated Successfully!');
+        return redirect(url('customer'))->with('generate_pdf_successfully','Feedback Added Successfully!');
     }
 
 

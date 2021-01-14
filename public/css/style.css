@@ -118,11 +118,11 @@ label{
 }
 .detail{
     margin-top: 2%;
-    background-color: rgba(255, 166, 0, 0.055);
+    /* background-color: rgba(255, 166, 0, 0.055); */
     box-shadow: 0px 0px 10px rgb(30, 0, 99);
     border-radius: 10px;
     padding: 20px;
-    border-left: 3px solid rgb(9, 0, 58);
+    border-left: 3px solid rgb(189, 0, 0);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
