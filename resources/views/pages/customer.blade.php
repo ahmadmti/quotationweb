@@ -10,6 +10,11 @@
 
 {{-- Messages --}}
 <div class="mt-5">
+    @if (session('generate_pdf_successfully'))
+    <li>
+        <span class=" text-success">{{ session('generate_pdf_successfully') }}</span>
+    </li>
+    @endif
     @if (session('success'))
     <li>
         <span class=" text-success">{{ session('success') }}</span>

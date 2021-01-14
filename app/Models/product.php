@@ -14,9 +14,15 @@ class product extends Model
 
         return $this->belongsTo(customer::class,'customer_id','id');
     }
+
     public function quotation(){
 
         return $this->belongsTo(Quotation::class,'quotation_id','id');
+    }
+
+    public function feedback(){
+
+        return $this->hasOne(Supplier_Feedback::class,'product_id','id');
     }
 
 

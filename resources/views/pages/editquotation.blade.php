@@ -87,10 +87,10 @@
             <tr id="row_parent_container_{{$item->id}}">
                 {{-- Product Name Field --}}
 
-                    <td><textarea name="product[]" id="product" cols="" rows="1" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea></td>
+                    <td><textarea name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea></td>
                 <input type="hidden" name="product_id[]" value="{{$item->id}}">
                 {{-- Product Spesifications Field --}}
-                <td><textarea name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea></td>
+                <td><textarea name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea></td>
                 {{-- Operation --}}
                 <td><i onclick="deleteProduct('{{$item->id}}')" class="dellRow fas fa-times"></i></td>
             </tr>
@@ -109,7 +109,7 @@
 <script>
     function deleteProduct(id){
 
-        if(confirm('are you sure you want to delete. if you delete you cannot recover.')){
+        if(confirm('Are You Sure? You want to delete, if you delete, you cannot recover!')){
             $.ajax({
                 url:"{{url('delete_product')}}",
                 type: "POST",
@@ -146,13 +146,13 @@
                         $("#id").html(`<label for="id">ID:</label>
                                         <input type="hidden" value="`+result.customer.id+`" name="id" class="form-control" readonly>`);
                         $("#name").html(`<label for="name">Name:</label>
-                                        <input value="`+result.customer.name+`" name="name" class="form-control" readonly>`);
+                                        <input disabled value="`+result.customer.name+`" name="name" class="form-control" readonly>`);
                         $("#email").html(`<label for="email">Email:</label>
-                                        <input value="`+result.customer.email+`" name="email" class="form-control" readonly>`);
+                                        <input disabled value="`+result.customer.email+`" name="email" class="form-control" readonly>`);
                         $("#phone").html(`<label for="name">Phone:</label>
-                                        <input value="`+result.customer.phone+`" name="phone" class="form-control" readonly>`);
+                                        <input disabled value="`+result.customer.phone+`" name="phone" class="form-control" readonly>`);
                         $("#address").html(`<label for="address">Address:</label>
-                                        <input value="`+result.customer.address+`" name="address" class="form-control" readonly>`);
+                                        <input disabled value="`+result.customer.address+`" name="address" class="form-control" readonly>`);
                     }
                 }
             });

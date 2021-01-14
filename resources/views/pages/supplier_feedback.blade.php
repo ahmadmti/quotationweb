@@ -55,6 +55,7 @@
 <div class="ease-top">
     <div class="quotsBox mt-3">
         <h2 class="mb-4"><label>Product Detail:</label>
+            <input style="float: right;" type="submit" name="submit"  class="btn btn-primary " value="Generate PDF">
         </h2>
         {{-- codepen --}}
         <div id="table" class="table-editable">
@@ -72,22 +73,21 @@
                 <input type="hidden" name="quot_id" placeholder="test" value="{{ $item['quotation_id'] }}">
 
                 <td>
-                    <textarea disabled name="product[]" id="product" cols="" rows="1" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea>
+                    <textarea disabled name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea>
                 </td>
                 <input type="hidden" name="product_id[]" value="{{$item->id}}">
 
                 {{-- Product Spesifications Field --}}
                 <td>
-                    <textarea disabled name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea>
+                    <textarea disabled name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea>
                 </td>
                 <td>
-                    <textarea name="feedback[]" id="feedback" cols="" rows="1" class="form-control" placeholder="Supplier Feedback"></textarea>
+                    <textarea name="feedback[]" id="feedback" cols="" rows="3" class="form-control" placeholder="Supplier Feedback" required></textarea>
                 </td>
             </tr>
             @endforeach
         </table>
         </div>
-        <input style="float: right;" type="submit" name="submit"  class="btn btn-primary mt-4" value="Send PDF">
         {{-- codepen --}}
     </div>
     </form>

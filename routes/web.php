@@ -117,3 +117,5 @@ Route::post('supplier_feedback/{id}',[SupplierFeedbackController::class,'storeFe
 Route::get('pdf',[SupplierFeedbackController::class,'getFeedbackData']);
 // view feedback through customer
 Route::get('feedback/{id}',[CustomerController::class,'viewForEmail']);
+// Delete Product
+Route::post('delete_feedback',[SupplierFeedbackController::class,'deleteFeedback']);

@@ -16,12 +16,13 @@ class CreateSupplierFeedbackTable extends Migration
         Schema::create('supplier__feedback', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('customer_id');
-            $table->string('product_id');
+            $table->unsignedBigInteger('product_id');
             $table->string('quotation_id');
-            $table->string('supplier_feedback')->nullable();
+            $table->string('supplier_feedback');
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

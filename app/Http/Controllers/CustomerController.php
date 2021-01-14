@@ -86,9 +86,9 @@ class CustomerController extends Controller
 
     public function viewForEmail($id){
 
-        $pdf_data = customer::with('quotation.products','quotation.supplier_feedback')->where('id',$id)->first();
+        $pdf_data = customer::with('quotation.products.feedback')->where('id',$id)->first();
         // return $pdf_data;
-        return view('/pages.viewForEmail',['pdf_data' => $pdf_data]);
+        return view('/viewForEmail',['pdf_data' => $pdf_data]);
 
     }
 

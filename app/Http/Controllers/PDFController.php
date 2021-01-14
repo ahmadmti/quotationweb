@@ -45,12 +45,12 @@ class PDFController extends Controller
 
             $data = customer::find($req->id);
 
-            $pdf = PDF::loadView('/pages.viewForEmail',['pdf_data' => $pdf_data])->setPaper('a4', 'portrait');
+            $pdf = PDF::loadView('/viewForEmail',['pdf_data' => $pdf_data])->setPaper('a4', 'portrait');
             \Storage::disk('local')->put('feedback/feedback_'.$data->id.'.pdf', $pdf->output());
 
             \Storage::disk('local')->url('feedback/feedback_'.$data->id.'.pdf');
 
-            Mail::send('/pages.viewForEmail',['pdf_data' => $pdf_data], function($message) use ($pdf, $data) {
+            Mail::send('/viewForEmail',['pdf_data' => $pdf_data], function($message) use ($pdf, $data) {
                 $message->to($data->email, $data->name);
                 $message->subject("Feedback of Your Quotation.");
                 $message->from('noreply@gainabit.geeklone.com');

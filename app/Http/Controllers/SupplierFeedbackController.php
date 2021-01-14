@@ -39,7 +39,7 @@ class SupplierFeedbackController extends Controller
             $feedback_object->save();
 
         }
-        return redirect(url('pdf'));
+        return redirect(url('customer'))->with('generate_pdf_successfully','PDF Generated Successfully!');
     }
 
 
@@ -48,6 +48,13 @@ class SupplierFeedbackController extends Controller
         $feedback = Supplier_Feedback::with('customer','product')->orderBy('id','DESC')->get();
         return view('customerPDF',['feedback' => $feedback]);
 
+    }
+
+    public function deleteFeedback(Request $req){
+
+        $product = Supplier_Feedback::find($req->id);
+        $product->delete();
+        return response()->json(['status'=> 'success']);
     }
 
 }
