@@ -30,7 +30,7 @@ class PDFController extends Controller
             Mail::send('myPDF', ['quotations' => $quotations,'supplier_data' => $supplier_data], function($message) use ($pdf, $supplier_data) {
                 $message->to($supplier_data->email, $supplier_data->name);
                 $message->subject("Product Quotation Review");
-                $message->from('noreply@gainabit.geeklone.com');
+                $message->from('sales@touchcash.de');
                 $message->attachData($pdf->output(),'Quotation.pdf');
             });
         }
