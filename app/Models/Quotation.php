@@ -18,4 +18,8 @@ class Quotation extends Model
         return $this->hasMany(product::class,'quotation_id','id');
     }
 
+    public function supplier_feedback(){
+        return $this->hasMany(Supplier_Feedback::class,'quotation_id','id');
+    }
+
 }

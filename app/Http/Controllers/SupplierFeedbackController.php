@@ -45,9 +45,8 @@ class SupplierFeedbackController extends Controller
 
     public function getFeedbackData(Request $req){
 
-        $feedback = Supplier_Feedback::with('quotations','customers')->first();
-        dd($feedback);
-        // return view('customerPDF',['feedback' => $feedback]);
+        $feedback = Supplier_Feedback::with('customer','product')->orderBy('id','DESC')->get();
+        return view('customerPDF',['feedback' => $feedback]);
 
     }
 

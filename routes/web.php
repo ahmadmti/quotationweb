@@ -113,3 +113,5 @@ Route::get('supplier_feedback/{id}',[SupplierFeedbackController::class,'feedback
 Route::post('supplier_feedback/{id}',[SupplierFeedbackController::class,'storeFeedback']);
 // customer feedback page
 Route::get('pdf',[SupplierFeedbackController::class,'getFeedbackData']);
+// view feedback through customer
+Route::get('feedback/{id}',[CustomerController::class,'viewForEmail']);

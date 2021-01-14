@@ -180,6 +180,8 @@
     @yield('add_customer')
     @yield('customer_detail')
     @yield('edit_cstmr')
+    @yield('customerPDF')
+    @yield('viewForEmail')
 
     {{-- Supplier start --}}
     @yield('supplier')

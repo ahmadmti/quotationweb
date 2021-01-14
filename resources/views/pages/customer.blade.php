@@ -49,12 +49,11 @@
                     &nbsp;
                     <a href="{{url('edit_customer/'.$item['id'])}}" data-toggle="tooltip" title="Edit Customer"><i class="fas fa-edit"></i></a>
                     &nbsp;
+                    <a href="{{url('feedback/'.$item['id'])}}" data-toggle="tooltip" title="send feedback"><i class="far fa-paper-plane"></i></a>
+                    &nbsp;
 
 
                     <a onclick="deleteQuotation('{{$item->id}}')" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a>
-
-
-                    {{-- <a onclick="return confirm('Are you sure you want to Delete?');" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a> --}}
 
 
                 </td>

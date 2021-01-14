@@ -18,4 +18,7 @@ class customer extends Model
     public function cities(){
         return $this->belongsTo(city::class,'city','city_id');
     }
+    public function quotation(){
+        return $this->hasOne(Quotation::class,'customer_id','id');
+    }
 }

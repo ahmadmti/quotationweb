@@ -1,54 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-</head>
-<body>
+@extends('dashboard')
+
+@section('customerPDF')
 
 
-    <div class="container-fluid">
-        <h1 class="text-center"><b>Feedback About Product(s)</b></h1>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
-                <div class="mb-1"><b>Date: </b>{{ date('d/M/Y') }}</div>
-                <div class="mb-1"><b>Customer:</b> {{$feedback['customer'] }}</div>
-                <div class="mb-1"><b>Email:</b> {{ $feedback['customer'] }}</div>
-            </div>
-        </div>
+        <h1 class="headingPage"><b>Feedbacks About Product(s)</b></h1>
+
         <div class="row mt-5">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                {{-- {{$feedback['products']}} <br><br> --}}
-                <table class="table table-hover">
+                <table class="table table-hover display" id="example" style="width:100%">
                     <thead class="table-dark">
                         <tr>
-                            <th>Quotation ID:</th>
-                            <th>Product Name:</th>
+                            <th>Sr #:</th>
+                            <th>Customer Name:</th>
+                            <th>Product:</th>
                             <th>Specifications:</th>
                             <th>Feedbacks:</th>
+                            <th>Operation:</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($feedback as $feedback) --}}
+                        @foreach ($feedback as $index => $item)
                         <tr>
                             <td>
-                                {{-- {{ $feedback['products']->id }} --}}
+                                {{ $index }}
                             </td>
                             <td>
-                                {{-- {{ $feedback['products']->product }} --}}
+                                {{ $item['customer']->name }}
                             </td>
                             <td>
-                                {{-- {{ $feedback['products']->specification }} --}}
+                                {{ $item['product']->product }}
                             </td>
                             <td>
-                                {{-- {{ $feedback['supplier_feedback'] }} --}}
+                                {{ $item['product']->specification }}
+                            </td>
+                            <td>
+                                {{ $item['supplier_feedback'] }}
+                            </td>
+                            <td>
+                                operation
                             </td>
                         </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-    </div>
-</body>
-</html>
+
+@endsection
