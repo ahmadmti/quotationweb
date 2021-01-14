@@ -456,7 +456,7 @@
     }
 </script>
 {{-- Toggle Sidebar Script End --}}
-
+@stack('email-script')
 @endsection
 
 
