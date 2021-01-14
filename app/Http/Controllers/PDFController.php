@@ -54,7 +54,7 @@ class PDFController extends Controller
             Mail::send('/viewForEmail',['pdf_data' => $pdf_data], function($message) use ($pdf, $data) {
                 $message->to($data->email, $data->name);
                 $message->subject("Feedback of Your Quotation.");
-                $message->from('noreply@gainabit.geeklone.com');
+                $message->from('sales@touchcash.de');
                 $message->attachData($pdf->output(),'feedback.pdf');
             });
 
