@@ -3,9 +3,9 @@
 @section('viewForEmail')
 
 
-
 <h1 class="headingPage text-center">Feedback about Quotation(s)</h1>
 <br>
+
 <p class="mb-1">
     <b>Name: </b> {{ $pdf_data['name'] }}
 </p>
@@ -39,7 +39,7 @@
             @endforeach
         @endforeach
 </table>
-
+<a style="float: right" href="sendPdf" class="btn btn-link">Send</a>
 @else
     <b><h1 class="text-center text-danger">No Products Yet Selected..</h1></b>
 @endif
