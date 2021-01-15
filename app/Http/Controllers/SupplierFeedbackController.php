@@ -52,9 +52,10 @@ class SupplierFeedbackController extends Controller
 
     public function deleteFeedback(Request $req){
 
-        $product = Supplier_Feedback::find($req->id);
-        $product->delete();
-        return response()->json(['status'=> 'success']);
+        $dellFeedback = Supplier_Feedback::find($req->id);
+        $dellFeedback->delete();
+        return redirect(url('pdf'));
+
     }
 
 }

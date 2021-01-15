@@ -163,6 +163,13 @@
         <a href="{{url('/quotation')}}">All Quotations</a>
         <a href="{{url('/add_quots')}}">Add Quotations</a>
     </div>
+
+    {{-- pdf listing --}}
+    {{-- <a href="" data-toggle="collapse" data-target="#quotationsksCollapse">Quotations <i class="fas fa-caret-down"></i></a> --}}
+    {{-- <div id="quotationsksCollapse" class="collapse collapse-links"> --}}
+        <a href="{{url('/pdf')}}">All Feedbacks</a>
+        {{-- <a href="{{url('/add_quots')}}">Add Quotations</a> --}}
+    {{-- </div> --}}
 </div>
 {{-- Sidebar End --}}
 
@@ -181,7 +188,8 @@
     @yield('customer_detail')
     @yield('edit_cstmr')
     @yield('customerPDF')
-    @yield('viewForEmail')
+    @yield('pdfPreview')
+    @yield('edit_feedback')
 
     {{-- Supplier start --}}
     @yield('supplier')
@@ -317,7 +325,7 @@
             success: function(result){
                 let html = '<label for="name">Name:</label>';
                 $.each(result.customers,function(key,value){
-                    html += '<input value="'+value.name+'" id="quotsBgStyle" name="name" class="form-control" readonly>';
+                    html += '<input disabled value="'+value.name+'" id="quotsBgStyle" name="name" class="form-control" readonly>';
                 });
                 $("#name").html(html);
             }
@@ -337,7 +345,7 @@
             success: function(result){
                 let html = '<label for="email">Email:</label>';
                 $.each(result.customers,function(key,value){
-                    html += '<input type="text" value="'+value.email+'" id="quotsBgStyle" name="email" class="form-control" readonly>';
+                    html += '<input disabled type="text" value="'+value.email+'" id="quotsBgStyle" name="email" class="form-control" readonly>';
                 });
                 $("#email").html(html);
             }
@@ -357,7 +365,7 @@
             success: function(result){
                 let html = '<label for="phone">Phone:</label>';
                 $.each(result.customers,function(key,value){
-                    html += '<input type="text" value="'+value.phone+'" id="quotsBgStyle" name="phone" class="form-control" readonly>';
+                    html += '<input disabled type="text" value="'+value.phone+'" id="quotsBgStyle" name="phone" class="form-control" readonly>';
                 });
                 $("#phone").html(html);
             }
@@ -377,7 +385,7 @@
             success: function(result){
                 let html = '<label for="address">Address:</label>';
                 $.each(result.customers,function(key,value){
-                    html += '<textarea name="address" id="address" class="form-control" rows="2" readonly>'+value.address+'</textarea>';
+                    html += '<textarea disabled name="address" id="address" class="form-control" rows="2" readonly>'+value.address+'</textarea>';
                 });
                 $("#address").html(html);
             }

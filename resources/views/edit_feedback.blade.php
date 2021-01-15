@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('customerPDF')
+@section('edit_feedback')
 
 
         <h1 class="headingPage"><b>Feedbacks About Product(s)</b></h1>
@@ -10,7 +10,6 @@
                 <table class="table table-hover display" id="example" style="width:100%">
                     <thead class="table-dark">
                         <tr>
-                            <th>Sr #:</th>
                             <th>Customer Name:</th>
                             <th>Product:</th>
                             <th>Specifications:</th>
@@ -19,11 +18,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($feedback as $index => $item)
+                        @foreach ($editFeedback as $item)
+
                         <tr>
-                            <td>
-                                {{ $index }}
-                            </td>
                             <td>
                                 {{ $item['customer']->name }}
                             </td>
@@ -34,10 +31,16 @@
                                 {{ $item['product']->specification }}
                             </td>
                             <td>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <input type="hidden" name="id" value={{$item['id']}}>
+                                </form>
                                 {{ $item['supplier_feedback'] }}
+                                {{ $item['id'] }}
                             </td>
                             <td>
-                                <a href="{{ 'delete_feedback/'.$item['id'] }}" data-toggle="tooltip" title="Delete Feedback"><i class="fas fa-trash"></i></a>
+                                <a href="{{ 'edit_feedback/'.$item['id'] }}"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                         @endforeach

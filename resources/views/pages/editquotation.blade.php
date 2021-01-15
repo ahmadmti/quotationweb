@@ -60,10 +60,12 @@
     <input type="hidden" name="id" value="{{$editQuots['id']}}">
 <div class="ease-top">
     <div class="quotsBox mt-3">
-        <h2 class="mb-4"><label>Product Detail:</label></h2>
+        <h2 class="mb-4"><label>Product Detail:</label>
+            <input style="float: right;" type="submit" name="submit" class="btn btn-primary" value="Update Quotation">
+        </h2>
         {{-- codepen --}}
         <div id="table" class="table-editable">
-            <i class="table-add addRow fas fa-plus"></i>
+            <i class="table-add addRow fas fa-plus" data-toggle="tooltip" title="Add Row"></i>
         <table class="table">
             <tr>
                 <th>Product:</th>
@@ -74,10 +76,10 @@
             <tr class="hide">
                 {{-- Product Name Field --}}
 
-                    <td><textarea name="product[]" id="product" cols="" rows="1" class="form-control" placeholder="Product Name"></textarea></td>
+                    <td><textarea name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name"></textarea></td>
 
                 {{-- Product Spesifications Field --}}
-                <td><textarea name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Spesifications"></textarea></td>
+                <td><textarea name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications"></textarea></td>
                 {{-- Operation --}}
                 <td><i class="table-remove dellRow fas fa-times"></i></td>
             </tr>
@@ -92,14 +94,13 @@
                 {{-- Product Spesifications Field --}}
                 <td><textarea name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea></td>
                 {{-- Operation --}}
-                <td><i onclick="deleteProduct('{{$item->id}}')" class="dellRow fas fa-times"></i></td>
+                <td><i style="cursor: pointer" onclick="deleteProduct('{{$item->id}}')" class="dellRow fas fa-times" data-toggle="tooltip" title="Delete Row"></i></td>
             </tr>
             @endforeach
         </table>
         </div>
         {{-- codepen --}}
     </div>
-        <input style="float: right;" type="submit" name="submit" class="btn btn-primary mt-4" value="Update Quotation">
     </form>
 </div>
 

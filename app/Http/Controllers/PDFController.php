@@ -30,7 +30,7 @@ class PDFController extends Controller
             Mail::send('myPDF', ['quotations' => $quotations,'supplier_data' => $supplier_data], function($message) use ($pdf, $supplier_data) {
                 $message->to($supplier_data->email, $supplier_data->name);
                 $message->subject("Product Quotation Review");
-                $message->from('sales@touchcash.de');
+                $message->from('noreply@gainabit.geeklone.com');
                 $message->attachData($pdf->output(),'Quotation.pdf');
             });
         }
@@ -40,21 +40,21 @@ class PDFController extends Controller
 // Supplier Feedback
     public function sendFeedbackInPDF(Request $req, $id){
 
-            $pdf_data = customer::with('quotation.products','quotation.supplier_feedback')->where('id',$id)->first();
-            // return $pdf_data;
-            // return view('/pages.viewForEmail',['pdf_data' => $pdf_data]);
+            $pdf_data_final = customer::with('quotation.products','quotation.supplier_feedback')->where('id',$id)->first();
+            // return $pdf_data_final;
+            // return view('/pages.viewForEmail',['pdf_data_final' => $pdf_data_final]);
 
             $data = customer::find($req->id);
 
-            $pdf = PDF::loadView('/viewForEmail',['pdf_data' => $pdf_data])->setPaper('a4', 'portrait');
+            $pdf = PDF::loadView('/readyPDF',['pdf_data_final' => $pdf_data_final])->setPaper('a4', 'portrait');
             \Storage::disk('local')->put('feedback/feedback_'.$data->id.'.pdf', $pdf->output());
 
             \Storage::disk('local')->url('feedback/feedback_'.$data->id.'.pdf');
 
-            Mail::send('/viewForEmail',['pdf_data' => $pdf_data], function($message) use ($pdf, $data) {
+            Mail::send('/readyPDF',['pdf_data_final' => $pdf_data_final], function($message) use ($pdf, $data) {
                 $message->to($data->email, $data->name);
                 $message->subject("Feedback of Your Quotation.");
-                $message->from('sales@touchcash.de');
+                $message->from(config('mail.from.address'));
                 $message->attachData($pdf->output(),'feedback.pdf');
             });
 

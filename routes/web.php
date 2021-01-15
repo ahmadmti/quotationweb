@@ -106,9 +106,9 @@ Route::post('get-cities-by-state',[SupplierController::class,'getCity']);
 
 
 // Send quotation to supplier
-Route::post('send-email-pdf', [PDFController::class, 'generatePDF']);
+Route::post('send-email-pdf', [PDFController::class,'generatePDF']);
 // Send Supplier Feedback
-Route::get('send-feedback-pdf/{id}', [PDFController::class, 'sendFeedbackInPDF']);
+Route::post('send-feedback-pdf/{id}', [PDFController::class,'sendFeedbackInPDF']);
 // add Supplier feedback
 Route::get('supplier_feedback/{id}',[SupplierFeedbackController::class,'feedback']);
 // post feedback
@@ -117,5 +117,7 @@ Route::post('supplier_feedback/{id}',[SupplierFeedbackController::class,'storeFe
 Route::get('pdf',[SupplierFeedbackController::class,'getFeedbackData']);
 // view feedback through customer
 Route::get('feedback/{id}',[CustomerController::class,'viewForEmail']);
-// Delete Product
-Route::post('delete_feedback',[SupplierFeedbackController::class,'deleteFeedback']);
+// Edit Feedback
+Route::get('delete_feedback/{id}',[SupplierFeedbackController::class,'deleteFeedback']);
+// ready feedback for email
+Route::get('readyPDF/{id}',[CustomerController::class,'readyForEmail']);

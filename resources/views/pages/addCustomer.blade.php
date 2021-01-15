@@ -68,6 +68,7 @@
                     <option value="">Select state first</option>
                 </select>
             </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4"></div>
             {{-- Success Message --}}
             <div class="form-group col-sm-4 col-md-4 col-lg-4">
                 <br>
@@ -78,9 +79,9 @@
                 @endif
             </div>
             {{-- Submit Button --}}
-            <div class="form-group col-sm-8 col-md-8 col-lg-8">
-                <label for="submit">Add Now:</label>
-                <button type="submit" name="submit" class="form-control btn btn-primary"><i class="fas fa-user-plus"></i> Add Customer</button>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                <br>
+                <button type="submit" name="submit" style="width: 100%" class="btn btn-primary"><i class="fas fa-user-plus"></i> Add Customer</button>
             </div>
         </div>
     </div>

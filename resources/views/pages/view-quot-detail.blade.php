@@ -41,6 +41,7 @@
             <th><li>Country:</li></th>
             <td>{{ !empty($viewQuotDetail['customer']->country) ? $viewQuotDetail['customer']->country : '--' }}</td>
         </tr>
+        @if (!empty($viewQuotDetail['products']))
         <tr>
             <td class="text-primary">-- -- -- -- -- -- --</td>
             <td class="text-primary">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</td>
@@ -50,7 +51,7 @@
             <th><li>Specification(s) <i class="fas fa-angle-down"></i></li></th>
         </tr>
 
-        @if (!empty($viewQuotDetail['products']))
+
         @foreach ($viewQuotDetail['products'] as $item)
             <tr>
                 <td><b><li>{{ $item->product }}:</li></b></td>
@@ -58,12 +59,6 @@
             </tr>
         @endforeach
         @endif
-        <tr>
-            <p class="mutedButtons">
-                <a href="{{url('editquotation/'.$viewQuotDetail['id'])}}" data-toggle="tooltip" data-placement="top" title="Edit Quotation"><i class="far fa-edit"></i></i></a>
-                &nbsp;&nbsp;
-            </p>
-        </tr>
 
     </table>
 </div>

@@ -140,10 +140,10 @@ class SupplierController extends Controller
     }
 
     //Send Supplier feedback to customer
-    public function supplierFeedback(Request $req){
+    // public function supplierFeedback(Request $req){
 
-        $customers = customer::all();
-        $editQuots = Quotation::where('id',$req->id)->with('products','customer')->first();
-        return view('pages.supplier_feedback',['editQuots'=> $editQuots,'customers'=>$customers]);
-    }
+    //     $customers = customer::all();
+    //     $editQuots = Quotation::where('id',$req->id)->with('products','customer')->first();
+    //     return view('pages.supplier_feedback',['editQuots'=> $editQuots,'customers'=>$customers]);
+    // }
 }

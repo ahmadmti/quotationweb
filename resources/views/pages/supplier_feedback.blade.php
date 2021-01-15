@@ -52,10 +52,12 @@
         </div>
     </div>
 <hr>
+
+
 <div class="ease-top">
     <div class="quotsBox mt-3">
         <h2 class="mb-4"><label>Product Detail:</label>
-            <input style="float: right;" type="submit" name="submit"  class="btn btn-primary " value="Generate PDF">
+            <input style="float: right;" type="submit" name="submit"  class="btn btn-primary " value="Save Feedback">
         </h2>
         {{-- codepen --}}
         <div id="table" class="table-editable">
@@ -65,33 +67,39 @@
                 <th>Spesifications</th>
                 <th>Feedback</th>
             </tr>
+            @if (!empty($view_quot_for_feedback['products']))
 
 
-            @foreach ($view_quot_for_feedback['products'] as $item)
+                @foreach ($view_quot_for_feedback['products'] as $item)
+                <tr>
+                    {{-- Product Name Field --}}
+                    <input type="hidden" name="quot_id" placeholder="test" value="{{ $item['quotation_id'] }}">
 
-                {{-- Product Name Field --}}
-                <input type="hidden" name="quot_id" placeholder="test" value="{{ $item['quotation_id'] }}">
+                    <td>
+                        <textarea disabled name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea>
+                    </td>
+                    <input type="hidden" name="product_id[]" value="{{$item->id}}">
 
-                <td>
-                    <textarea disabled name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name">{{ $item['product'] }}</textarea>
-                </td>
-                <input type="hidden" name="product_id[]" value="{{$item->id}}">
+                    {{-- Product Spesifications Field --}}
+                    <td>
+                        <textarea disabled name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea>
+                    </td>
+                    <td>
+                        <textarea name="feedback[]" id="feedback" cols="" rows="3" class="form-control" placeholder="Supplier Feedback" required></textarea>
+                    </td>
+                </tr>
+                @endforeach
+                @else
+                <h1>Products not available</h1>
+                @endif
 
-                {{-- Product Spesifications Field --}}
-                <td>
-                    <textarea disabled name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Spesifications">{{ $item['specification'] }}</textarea>
-                </td>
-                <td>
-                    <textarea name="feedback[]" id="feedback" cols="" rows="3" class="form-control" placeholder="Supplier Feedback" required></textarea>
-                </td>
-            </tr>
-            @endforeach
         </table>
         </div>
         {{-- codepen --}}
     </div>
     </form>
 </div>
+
 
 
 

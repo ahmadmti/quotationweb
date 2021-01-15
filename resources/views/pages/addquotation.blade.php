@@ -32,7 +32,7 @@
         <p id="quots">RFQ Date:</p>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4 mt-4">
-        <input type="date" name="date" id="date" class="form-control" placeholder="Enter Date Quotation Date">
+        <input required type="date" name="date" id="date" class="form-control" placeholder="Enter Date Quotation Date">
     </div>
 </div>
 <div class="row mt-5">
@@ -64,21 +64,25 @@
         </span>
     </div>
 </div>
-<hr>
+{{-- Success Message Added quotation --}}
 @if (session('success'))
-    <span class="alert alert-success">{{ session('success') }}</span>
+<li><span class="text-success">{{ session('success') }}</span></li>
 @endif
+
+<hr>
 
 <div class="ease-top">
     <div class="quotsBox mt-3">
-        <h2 class="mb-4"><label>Product Detail:</label></h2>
+        <h2 class="mb-4"><label>Product Detail:</label>
+            <input style="float: right;" type="submit" name="submit" class="btn btn-primary" value="Add Quotation">
+        </h2>
         {{-- codepen --}}
         <div id="table" class="table-editable">
-            <i class="table-add addRow fas fa-plus"></i>
+            <i class="table-add addRow fas fa-plus" data-toggle="tooltip" title="Add row for Quotation."></i>
         <table class="table">
             <tr>
                 <th>Product:</th>
-                <th>Spesifications</th>
+                <th>Specifications</th>
                 <th data-attr-ignore>Remove</th>
             </tr>
             <tr class="hide">
@@ -88,18 +92,17 @@
                     <div class="text-danger mt-3">{{ $errors->first('product[]')}}</div>
                 @enderror
                 {{-- Product Spesifications Field --}}
-                <td><textarea name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Spesifications"></textarea></td>
+                <td><textarea name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Specifications"></textarea></td>
                 @error('specification[]')
                     <div class="text-danger mt-3">{{ $errors->first('specification[]')}}</div>
                 @enderror
                 {{-- Operation --}}
-                <td><i class="table-remove dellRow fas fa-times"></i></td>
+                <td><i class="table-remove dellRow fas fa-times" data-toggle="tooltip" title="Delete Row"></i></td>
             </tr>
         </table>
         </div>
         {{-- codepen --}}
     </div>
-        <input style="float: right;" type="submit" name="submit" class="btn btn-primary mt-4" value="Add Quotation">
     </form>
 </div>
 

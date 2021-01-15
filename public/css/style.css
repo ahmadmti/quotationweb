@@ -3,7 +3,6 @@
     color: white;
     border-radius: 10px;
     border-left: 3px solid red;
-    background: black;
     opacity: 70%;
     margin: auto;
     padding: 15px;
@@ -11,6 +10,23 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+.btn-primary:hover{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid black !important;
+    color: black;
+    font-weight: 500;
+}
+.btn-primary{
+    background-color: rgb(65, 0, 0);
+    border: none !important;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
 }
 .text404{
     color: #f1f1f1;
@@ -118,11 +134,10 @@ label{
 }
 .detail{
     margin-top: 2%;
-    /* background-color: rgba(255, 166, 0, 0.055); */
-    box-shadow: 0px 0px 10px rgb(30, 0, 99);
+    box-shadow: 1px -5px 8px rgb(111 255 175 / 72%);
     border-radius: 10px;
     padding: 20px;
-    border-left: 3px solid rgb(189, 0, 0);
+    border-left: 3px solid rgb(34 138 0);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -138,10 +153,10 @@ label{
     font-weight: 900;
 }
 .form-control:disabled, .form-control[readonly] {
-    background-color: #e9ecef;
+    background-color: transparent;
     opacity: 1;
-    background: aliceblue;
-    border: none !important;
+    background: transparent;
+    border: 1px solid !important;
 }
 .specification{
     text-align: justify;
@@ -204,7 +219,7 @@ label{
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgb(0, 65, 90);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -258,7 +273,7 @@ label{
 
 
 #bgColor{
-    background-color: #111;
+    background-color: rgb(0, 65, 90);
 }
 #Tcolor{
     color: rgb(136, 136, 136);

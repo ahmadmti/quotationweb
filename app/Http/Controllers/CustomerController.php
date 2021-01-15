@@ -93,6 +93,15 @@ class CustomerController extends Controller
     }
 
 
+    public function readyForEmail($id){
+
+        $pdf_data_final = customer::with('quotation.products.feedback')->where('id',$id)->first();
+        // return $pdf_data;
+        return view('/readyPDF',['pdf_data_final' => $pdf_data_final]);
+
+    }
+
+
 
     public function update(Request $req){
 

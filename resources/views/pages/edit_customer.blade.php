@@ -46,23 +46,6 @@
     </div>
     <div class="form-group col-sm-6 col-md-6 col-lg-6">
         <div class="row">
-            {{-- City Field --}}
-            {{-- <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                <label for="city">City:<span id="mustFill">*</span></label>
-                <input type="city" value="{{$data['city']}}" name="city" class="form-control">
-                @error('city')
-                    <div class="text-danger mt-3">{{ $errors->first('city')}}</div>
-                @enderror
-            </div> --}}
-            {{-- Country Field --}}
-            {{-- <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                <label for="country">Country:<span id="mustFill">*</span></label>
-                <input type="text" value="{{$data['country']}}" name="country" class="form-control">
-                @error('country')
-                    <div class="text-danger mt-3">{{ $errors->first('country')}}</div>
-                @enderror
-            </div> --}}
-            {{-- Phone No. Field --}}
             <div class="form-group col-sm-12 col-md-12 col-lg-12">
                 <label for="number">Phone #:<span id="mustFill">*</span></label>
                 <input type="number" value="{{$data['phone']}}" name="number" class="form-control">
@@ -72,8 +55,8 @@
             </div>
             {{-- Submit Button --}}
             <div class="form-group col-sm-12 col-md-12 col-lg-12">
-                <label for="submit">Update Now:</label>
-                <button type="submit" name="submit" class="form-control btn btn-success"><i class="fas fa-save"></i> Update</button>
+                <br>
+                <button type="submit" name="submit" style="width: 100%" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
             </div>
         </div>
     </div>
