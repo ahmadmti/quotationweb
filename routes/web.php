@@ -108,7 +108,7 @@ Route::post('get-cities-by-state',[SupplierController::class,'getCity']);
 // Send quotation to supplier
 Route::post('send-email-pdf', [PDFController::class,'generatePDF']);
 // Send Supplier Feedback
-Route::post('send-feedback-pdf/{id}', [PDFController::class,'sendFeedbackInPDF']);
+Route::get('send-feedback-pdf/{id}', [PDFController::class,'sendFeedbackInPDF']);
 // add Supplier feedback
 Route::get('supplier_feedback/{id}',[SupplierFeedbackController::class,'feedback']);
 // post feedback
