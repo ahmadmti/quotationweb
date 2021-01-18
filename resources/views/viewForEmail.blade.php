@@ -40,7 +40,7 @@
             </td>
             @else
                 <h5 class="text-danger">No feedback added Yet..
-                    <a href="{{url('supplier_feedback/'.$pdf_data['quotation']->id)}}">Click to add feedback</a>
+                    <a class="text-primary" href="{{url('supplier_feedback/'.$pdf_data['quotation']->id)}}">Click to add feedback</a>
                 </h5>
             @endif
         </tr>
@@ -52,7 +52,7 @@
     @else
     <b><h1 class="text-center text-danger">No Products Yet Selected..</h1></b>
         <br>
-    <b><h5 class="text-center text-danger"><a href="{{url('/add_quots')}}">Click to add Products</a></h5></b>
+    <b><h5 class="text-center text-primary"><a href="{{url('/add_quots')}}">Click to add Products</a></h5></b>
 @endif
 
 
