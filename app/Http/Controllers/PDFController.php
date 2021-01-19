@@ -17,6 +17,7 @@ class PDFController extends Controller
 
         $quotations = Quotation::with('products')->where('id',$req->quot_id)->first();
 
+
         foreach($req->ids as $supplier_data){
 
             $supplier_data = supplier::find($supplier_data);
@@ -26,7 +27,6 @@ class PDFController extends Controller
             \Storage::disk('local')->put('quotation/quotation_'.$req->quot_id.'.pdf', $pdf->output());
 
             \Storage::disk('local')->url('quotation/quotation_'.$req->quot_id.'.pdf');
-            Log::debug('to_email'.$supplier_data->email);
             Mail::send('myPDF', ['quotations' => $quotations,'supplier_data' => $supplier_data], function($message) use ($pdf, $supplier_data) {
                 $message->to($supplier_data->email, $supplier_data->name);
                 $message->subject("Product Quotation Review");
@@ -41,8 +41,6 @@ class PDFController extends Controller
     public function sendFeedbackInPDF(Request $req, $id){
 
             $pdf_data_final = customer::with('quotation.products','quotation.supplier_feedback')->where('id',$id)->first();
-            // return $pdf_data_final;
-            // return view('/pages.viewForEmail',['pdf_data_final' => $pdf_data_final]);
 
             $data = customer::find($req->id);
 

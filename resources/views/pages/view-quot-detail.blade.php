@@ -3,6 +3,7 @@
 
 @section('view-quot-detail')
 
+
 <h1 class="hedingPage">Quotation Detail</h1>
 <div class="detail">
     <table class="table table-hover">
@@ -31,15 +32,15 @@
         </tr>
         <tr>
             <th><li>City:</li></th>
-            <td>{{ !empty($viewQuotDetail['customer']->city) ? $viewQuotDetail['customer']->city : '--' }}</td>
+            <td>{{ !empty($viewQuotDetail->customer->cities->city_name) ? $viewQuotDetail->customer->cities->city_name : '--' }}</td>
         </tr>
         <tr>
             <th><li>State:</li></th>
-            <td>{{ !empty($viewQuotDetail['customer']->state) ? $viewQuotDetail['customer']->state : '--' }}</td>
+            <td>{{ !empty($viewQuotDetail->customer->states->states_name) ? $viewQuotDetail->customer->states->states_name : '--' }}</td>
         </tr>
         <tr>
             <th><li>Country:</li></th>
-            <td>{{ !empty($viewQuotDetail['customer']->country) ? $viewQuotDetail['customer']->country : '--' }}</td>
+            <td>{{ !empty($viewQuotDetail->customer->countries->country_name) ? $viewQuotDetail->customer->countries->country_name : '--' }}</td>
         </tr>
         @if (!empty($viewQuotDetail['products']))
         <tr>

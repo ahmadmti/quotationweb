@@ -58,7 +58,8 @@
                     &nbsp;
 
 
-                    <a onclick="deleteQuotation('{{$item->id}}')" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a>
+                    <a onclick="return confirm('Are you sure you want to delete? If you delete, all quotations and feedbacks against this customer will also be deleted!');" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a>
+                    {{-- <a onclick="deleteQuotation('{{$item->id}}')" href="{{ url('customer-delete/'.$item['id'] )}}" data-toggle="tooltip" title="Delete Customer"><i class="fas fa-trash-alt"></i></a> --}}
 
 
                 </td>
@@ -71,7 +72,7 @@
 
 
 {{-- Data Tabel Script --}}
-<script>
+{{-- <script>
     function deleteQuotation(id){
 
     if(confirm('Are you sure? Your want to delete customer and also delete quotations against this customer.')){
@@ -84,11 +85,11 @@
             },
             dataType : 'json',
             success: function(result){
-                // $('#row_parent_container_'+id).remove();
+                $('#row_parent_container_'+id).remove();
             }
         });
     }
 
 }
-</script>
+</script> --}}
 @endsection

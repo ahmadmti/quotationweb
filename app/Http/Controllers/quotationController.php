@@ -52,14 +52,15 @@ class quotationController extends Controller
 
         $customers = customer::all();
         $editQuots = Quotation::where('id',$req->id)->with('products','customer')->first();
-        return view('pages.editquotation',['editQuots'=> $editQuots,'customers'=>$customers]);
+        return view('pages.editquotation',['editQuots' => $editQuots, 'customers' => $customers]);
 
     }
 
     // view detail of specific customer
     public function view(Request $req){
 
-        $viewQuotDetail = Quotation::where('id',$req->id)->with('products')->first();
+        $viewQuotDetail = Quotation::where('id',$req->id)->with('products','customer.countries','customer.states','customer.cities')->first();
+        // return $viewQuotDetail;
         return view('pages.view-quot-detail',['viewQuotDetail'=> $viewQuotDetail]);
 
     }

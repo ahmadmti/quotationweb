@@ -10,6 +10,16 @@ class Quotation extends Model
     use HasFactory;
     protected $table = 'quotations';
 
+    public function countries(){
+        return $this->belongsTo(country::class,'country','country_id');
+    }
+    public function states(){
+        return $this->belongsTo(state::class,'state','states_id');
+    }
+    public function cities(){
+        return $this->belongsTo(city::class,'city','city_id');
+    }
+
     public function customer(){
         return $this->belongsTo(customer::class,'customer_id','id');
     }

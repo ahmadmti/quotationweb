@@ -87,12 +87,12 @@
             </tr>
             <tr class="hide">
                 {{-- Product Name Field --}}
-                <td><textarea name="product[]" id="product" cols="" rows="1" class="form-control" placeholder="Product Name"></textarea></td>
+                <td><textarea name="product[]" id="product" cols="" rows="3" class="form-control" placeholder="Product Name"></textarea></td>
                 @error('product[]')
                     <div class="text-danger mt-3">{{ $errors->first('product[]')}}</div>
                 @enderror
                 {{-- Product Spesifications Field --}}
-                <td><textarea name="specification[]" id="specification" cols="" rows="1" class="form-control" placeholder="Product Specifications"></textarea></td>
+                <td><textarea name="specification[]" id="specification" cols="" rows="3" class="form-control" placeholder="Product Specifications"></textarea></td>
                 @error('specification[]')
                     <div class="text-danger mt-3">{{ $errors->first('specification[]')}}</div>
                 @enderror

@@ -6,7 +6,8 @@
 
 <h1 class="headingPage text-center">Feedback about Quotation(s)</h1>
 <br>
-
+{{$pdf_data['quotation']->products}}
+<br>
 <p class="mb-1">
     <b>Name: </b> {{ $pdf_data['name'] }}
 </p>

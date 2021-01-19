@@ -121,3 +121,5 @@ Route::get('feedback/{id}',[CustomerController::class,'viewForEmail']);
 Route::get('delete_feedback/{id}',[SupplierFeedbackController::class,'deleteFeedback']);
 // ready feedback for email
 Route::get('readyPDF/{id}',[CustomerController::class,'readyForEmail']);
+
+
