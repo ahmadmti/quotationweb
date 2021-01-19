@@ -6,7 +6,6 @@
 
 <h1 class="headingPage text-center">Feedback about Quotation(s)</h1>
 <br>
-{{$pdf_data['quotation']->products}}
 <br>
 <p class="mb-1">
     <b>Name: </b> {{ $pdf_data['name'] }}
@@ -28,6 +27,7 @@
     </tr>
 
     @foreach ($pdf_data['quotation']->products as $item)
+    @if (!empty($item->feedback))
         <tr id="row_parent_feedback_{{$item->id}}">
             <td>
                 {{ $item->product }}
@@ -36,15 +36,18 @@
                 {{ $item->specification }}
             </td>
             <td>
-                @if (!empty($item->feedback->supplier_feedback))
-                    {{$item->feedback->supplier_feedback}}
+                {{$item->feedback->supplier_feedback}}
             </td>
-            @else
+        </tr>
+        @else
+        <tr>
+            <td>
                 <h5 class="text-danger">No feedback added Yet..
                     <a class="text-primary" href="{{url('supplier_feedback/'.$pdf_data['quotation']->id)}}">Click to add feedback</a>
                 </h5>
-            @endif
+            </td>
         </tr>
+        @endif
     @endforeach
 </table>
 @if (!empty($item->feedback->supplier_feedback))
