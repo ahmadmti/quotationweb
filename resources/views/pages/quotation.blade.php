@@ -9,6 +9,9 @@
     @if (session('pdf-generated-for-customer'))
         <li><span class="text-success">{{ session('pdf-generated-for-customer') }}</span></li>
     @endif
+    @if (session('message'))
+        <span class="text-danger">{{ session('message') }}</span>
+    @endif
 
 
 <div class="mt-5">
@@ -54,11 +57,7 @@
 
                     {{-- Send Supplier Feedback to customer --}}
                     <a href="{{url('supplier_feedback/'.$item['id'])}}" data-toggle="tooltip" data-placement="top" title="Add Supplier Feedbacks.."><i class="fas fa-comment-dots"></i></a>
-                    &nbsp;&nbsp;
 
-                    @if (session('message'))
-                    <span class="text-danger">{{ session('message') }}</span>
-                    @endif
                 </td>
             </tr>
             @endforeach
