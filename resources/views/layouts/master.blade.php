@@ -20,8 +20,45 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
 </head>
+<style>
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999 !important;
+}
+
+.loader {
+    position: relative;
+    animation: loader 2s infinite ease;
+}
+</style>
 <body class="body">
+
+    <div class="loader-wrapper">
+        <span class="loader">
+            <img src="{{ asset('images/loader.gif') }}" width="50px">
+        </span>
+    </div>
+
+
+
     @yield('dashboard')
+
+
+
+
+    <script>
+        $(window).on("load",function(){
+     $(".loader-wrapper").fadeOut("slow");
+});
+    </script>
 </body>
 </html>
 
